@@ -1,1 +1,5 @@
 .streamlit/secrets.toml
+todo.txt
+hashed_pw.pkl
+generate_keys.py
+toremove.py

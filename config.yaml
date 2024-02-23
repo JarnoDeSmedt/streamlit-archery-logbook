@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    jarnodesmedt:
+      email: jarnodesmedt@live.be
+      name: Jarno De Smedt
+      password: $2b$12$VBtUfB3VBy3QlCNH4j/Muu7aByd2S9fagdfAWRSyNMlbUrdUSb9fW # To be replaced with hashed password
+    feelstinkens:
+      email: stinkens.feel@gmail.com
+      name: Feel Stinkens
+      password: $2b$12$Ph0VLkur4x3C58fNNR9pheHIvmUAJVsf//5DxW0H.PBGpcwdajM42 # To be replaced with hashed password
+cookie:
+  expiry_days: 30
+  key: abcdef # Must be string
+  name: logbook_archery
+preauthorized:
+  emails:
+  - melsby@gmail.com

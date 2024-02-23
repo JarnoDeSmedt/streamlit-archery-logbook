@@ -1,2 +1,6 @@
 streamlit
 st-gsheets-connection
+streamlit-option-menu
+streamlit-authenticator
+bokeh
+streamlit-bokeh-events
