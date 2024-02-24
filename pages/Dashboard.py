@@ -26,9 +26,10 @@ if st.session_state["authentication_status"] == False:
 elif st.session_state["authentication_status"] == None:
     st.warning('Please enter your username and password')
 elif st.session_state["authentication_status"]:
-    st.write(f'Welcome to your archery dashboard *{st.session_state["name"]}*!')
+    st.subheader(f'Welcome to your archery dashboard *{st.session_state["name"]}*!')
     
-    
+    # Create a 2x2 layout for the duration metrics
+    col1, col2 = st.columns(2)
     
 
     # establish a google sheets connection
@@ -45,9 +46,9 @@ elif st.session_state["authentication_status"]:
     # Calculate total sum across columns
     afstanden_num = afstanden.apply(pd.to_numeric, errors='coerce')
     sum_per_column = afstanden_num.sum(axis=0)
-    total_sum = sum_per_column.sum()
+    total_sum = int(sum_per_column.sum())
 
-    st.metric(label='Total Sum', value=total_sum)
+    col2.metric(label='Total Sum', value=total_sum)
 
     # --- KPI - Total Arrows Shot During This Week
     arrows_columns = afstanden.columns[1:]  # Exclude 'Date' column
@@ -60,21 +61,13 @@ elif st.session_state["authentication_status"]:
     current_week_data = data[data['Date'].dt.isocalendar().week == data['Date'].max().isocalendar().week]
 
     # Calculate the sum of arrows for the current week
-    arrows_this_week_sum = current_week_data['Total Arrows'].sum()
+    arrows_this_week_sum = int(current_week_data['Total Arrows'].sum())
 
-    st.metric(label='Total Arrows Shot this Week', value=arrows_this_week_sum)
+    col1.metric(label='Total Arrows Shot this Week', value=arrows_this_week_sum)
     
     # TODO st.metric(label="Temperature", value="70 °F", delta="1.2 °F") (aantal vorige week en nu verschil weergeven)
     
-    # --- KPI - total arrows range
-    
-    
-    #TODO
-    
-    
-    
-    # Create a 2x2 layout for the duration metrics
-    col1, col2 = st.columns(2)
+
     
     # --- KPI - total cardio this week
     
@@ -161,6 +154,29 @@ elif st.session_state["authentication_status"]:
     # Display the result using st.metric
     col2.metric(label='Total Yoga per Week', value=total_time_per_week_str.sum())
     
+    st.markdown("""---""")
+    
+    st.write("Make selections in the left sidebar to update")
+    
+    # --- KPI - total arrows range
+    
+    # Add a date range picker for date selection
+    st.sidebar.subheader('Select Date Range')
+
+    # Convert start and end dates to Timestamps
+    start_date = pd.to_datetime(st.sidebar.date_input('Start Date', data['Date'].min()))
+    end_date = pd.to_datetime(st.sidebar.date_input('End Date', data['Date'].max()))
+
+    # Convert 'Date' column to Timestamps
+    data['Date'] = pd.to_datetime(data['Date'])
+
+    # Filter data based on selected date range
+    filtered_data = data[(data['Date'] >= start_date) & (data['Date'] <= end_date)]
+
+    # Display the total arrows metric for the selected date range
+    total_arrows_for_selected_range = int(filtered_data['Total Arrows'].sum())
+    st.metric(label='Total Arrows uit selectie', value=total_arrows_for_selected_range)
+    
     
     # TODO chart number of arrows per month/year,... plotlly interactive
     
@@ -172,6 +188,9 @@ elif st.session_state["authentication_status"]:
 
     # Melt the DataFrame to have a 'Distance' column and a 'Value' column
     melted_data = pd.melt(data, id_vars=['Date'], var_name='Distance', value_name='Value')
+    
+    # Exclude rows where 'Distance' is 'Total Arrows'
+    melted_data = melted_data[melted_data['Distance'] != 'Total Arrows']
 
     # Create a stacked bar chart
     fig = px.bar(melted_data, x='Date', y='Value', color='Distance',
