@@ -1,5 +1,6 @@
 import pickle
 from pathlib import Path
+import datetime
 
 import streamlit as st
 import streamlit_authenticator as stauth
@@ -103,28 +104,28 @@ elif authentication_status:
 
 
     # new entry form
-    with st.form(key="entry_form"):
+    with st.form(key="entry_form", clear_on_submit=True):
         date = st.date_input(label="date*")
-        time_shooting = st.time_input(label="shooting time")
-        blank_bale = st.number_input(label="blank bale", step = 1)
-        m18 = st.number_input(label="18m", step = 1)
-        m25 = st.number_input(label="25m", step = 1)
-        m30 = st.number_input(label="30m", step = 1)
-        m35 = st.number_input(label="35m", step = 1)
-        m40 = st.number_input(label="40m", step = 1)
-        m45 = st.number_input(label="45m", step = 1)
-        m50 = st.number_input(label="50m", step = 1)
-        m55 = st.number_input(label="55m", step = 1)
-        m60 = st.number_input(label="60m", step = 1)
-        m70 = st.number_input(label="70m", step = 1)
-        m80 = st.number_input(label="80m", step = 1)
-        m90 = st.number_input(label="90m", step = 1)
-        arrows_comp = st.number_input(label="Arrows shot_comp", step = 1)
-        field = st.number_input(label="field", step = 1)
-        cardio_time = st.time_input(label="cardio time")
-        yoga_time = st.time_input(label="yoga time")
-        static_time = st.time_input(label="static work time")
-        gym_time = st.time_input(label="gym time")
+        time_shooting = st.time_input(label="shooting time", value= datetime.time(0, 00))
+        blank_bale = st.number_input(label="blank bale", step = 1, value=None)
+        m18 = st.number_input(label="18m", step = 1, value=None)
+        m25 = st.number_input(label="25m", step = 1, value=None)
+        m30 = st.number_input(label="30m", step = 1, value=None)
+        m35 = st.number_input(label="35m", step = 1, value=None)
+        m40 = st.number_input(label="40m", step = 1, value=None)
+        m45 = st.number_input(label="45m", step = 1, value=None)
+        m50 = st.number_input(label="50m", step = 1, value=None)
+        m55 = st.number_input(label="55m", step = 1, value=None)
+        m60 = st.number_input(label="60m", step = 1, value=None)
+        m70 = st.number_input(label="70m", step = 1, value=None)
+        m80 = st.number_input(label="80m", step = 1, value=None)
+        m90 = st.number_input(label="90m", step = 1, value=None)
+        arrows_comp = st.number_input(label="Arrows shot_comp", step = 1, value=None)
+        field = st.number_input(label="field", step = 1, value=None)
+        cardio_time = st.time_input(label="cardio time", value= datetime.time(0, 00))
+        yoga_time = st.time_input(label="yoga time", value= datetime.time(0, 00))
+        static_time = st.time_input(label="static work time", value= datetime.time(0, 00))
+        gym_time = st.time_input(label="gym time", value= datetime.time(0, 00))
         comment = st.text_area("special comment")
         
         st.markdown("**required*")
