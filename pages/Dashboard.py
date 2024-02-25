@@ -200,6 +200,15 @@ elif st.session_state["authentication_status"]:
 
     # Show the legend
     fig.update_layout(showlegend=True)
+    
+    # Disable zooming and panning
+    fig.update_layout(dragmode='pan')
+    
+    fig.update_layout(yaxis=dict(fixedrange=True))
+
+    # Show ticks for every day on x-axis
+    fig.update_layout(xaxis=dict(dtick='D'))
+
 
     # Display the chart in Streamlit
     st.plotly_chart(fig, use_container_width=True)
