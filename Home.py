@@ -88,21 +88,8 @@ elif authentication_status:
 
     # fetch existing data 
     existing_data = conn.read(worksheet="input_data", usecols=list(range(22)))
-
     existing_data = existing_data.dropna(how="all")
-
-    # display the dataframe
-    #st.dataframe(existing_data)
-
-    # list of types
-
-    TYPES = [
-        "type1",
-        "type2",
-        "type3"
-    ]
-
-
+    
     # new entry form
     with st.form(key="entry_form", clear_on_submit=True):
         date = st.date_input(label="date*")
