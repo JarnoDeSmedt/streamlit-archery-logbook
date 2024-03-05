@@ -12,8 +12,10 @@ from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
 
-
 import pandas as pd
+
+# Set the width of the entire Streamlit app page
+st.set_page_config(layout="wide")
 
 # --- user authentication
 import yaml
@@ -89,9 +91,11 @@ elif authentication_status:
     # fetch existing data 
     existing_data = conn.read(worksheet="input_data", usecols=list(range(22)))
     existing_data = existing_data.dropna(how="all")
+
+    formcol1, formcol2 = st.columns(2)
     
     # new entry form
-    with st.form(key="entry_form", clear_on_submit=True):
+    with formcol1.form(key="entry_form", clear_on_submit=True):
         date = st.date_input(label="date*")
         time_shooting = st.time_input(label="shooting time", value= datetime.time(0, 00))
         blank_bale = st.number_input(label="blank bale", step = 1, value=None)

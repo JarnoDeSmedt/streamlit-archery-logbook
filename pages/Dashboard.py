@@ -219,6 +219,7 @@ elif st.session_state["authentication_status"]:
     arrowplotdata = data.drop(columns=['Time hh:mm', 'Special commentary', 'Gym hh:mm', 'Yoga hh:mm','Cardio hh:mm', 'Static Work hh:mm'])
     
     arrowplotdata['Date'] = pd.to_datetime(data['Date'])
+    
 
     # Melt the DataFrame to have a 'Distance' column and a 'Value' column
     melted_data = pd.melt(arrowplotdata, id_vars=['Date'], var_name='Distance', value_name='Value')
@@ -226,14 +227,31 @@ elif st.session_state["authentication_status"]:
     # Exclude rows where 'Distance' is 'Total Arrows'
     melted_data = melted_data[melted_data['Distance'] != 'Total Arrows']
 
+    # Filter data for the last 30 days
+    last_30_days = pd.to_datetime('today') - pd.DateOffset(days=30)
+    last30days_df = melted_data[melted_data['Date'] >= last_30_days]
+
     # Create a stacked bar chart
-    fig = px.bar(melted_data, x='Date', y='Value', color='Distance',
+    fig = px.bar(last30days_df, x='Date', y='Value', color='Distance',
                 labels={'Value': 'Arrows Shot', 'Distance': 'Distance'},
                 category_orders={'Distance': sorted(data.columns[1:])})
     
     st.write("Arrows Shot per Day for Each Distance")
+
+    fig.update_layout(
+        width=1200,  # Set the width of the plot
+        height=700  # Set the height of the plot
+    )
+
+    # Set the default x-axis range to the last 30 days
+    fig.update_xaxes(
+        range=[last_30_days, pd.to_datetime('today')],
+        rangeslider_visible=True  # Enable rangeslider for pan/zoom
+    )
     
     fig.update_layout(margin=dict(t=100))
+
+    
     
     # Show the legend
     fig.update_layout(legend=dict(orientation="h", yanchor="bottom", xanchor="center", y=1.02, x=0.5, font=dict(size=20)), showlegend=True)
