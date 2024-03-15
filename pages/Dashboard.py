@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import datetime
+from datetime import datetime
 import plotly.express as px
 import streamlit_authenticator as stauth
 
@@ -210,64 +211,47 @@ elif st.session_state["authentication_status"]:
     st.metric(label='Total Arrows from date range', value=total_arrows_for_selected_range)
     
     
-    # TODO chart number of arrows per month/year,... plotlly interactive
+    # TODO chart number of arrows per week/month/year,... plotlly interactive
     
+    # TODO metric of 100% week 
+    # TODO chart pe
     
     # --- PLOT
-    
-    # Convert 'Date' to datetime
-    arrowplotdata = data.drop(columns=['Time hh:mm', 'Special commentary', 'Gym hh:mm', 'Yoga hh:mm','Cardio hh:mm', 'Static Work hh:mm'])
-    
-    arrowplotdata['Date'] = pd.to_datetime(data['Date'])
-    
-
-    # Melt the DataFrame to have a 'Distance' column and a 'Value' column
-    melted_data = pd.melt(arrowplotdata, id_vars=['Date'], var_name='Distance', value_name='Value')
-    
-    # Exclude rows where 'Distance' is 'Total Arrows'
-    melted_data = melted_data[melted_data['Distance'] != 'Total Arrows']
-
-    # Filter data for the last 30 days
-    last_30_days = pd.to_datetime('today') - pd.DateOffset(days=30)
-    last30days_df = melted_data[melted_data['Date'] >= last_30_days]
-
-    # Create a stacked bar chart
-    fig = px.bar(last30days_df, x='Date', y='Value', color='Distance',
-                labels={'Value': 'Arrows Shot', 'Distance': 'Distance'},
-                category_orders={'Distance': sorted(data.columns[1:])})
-    
     st.write("Arrows Shot per Day for Each Distance")
 
+    # Simplify data preparation
+    arrowplotdata = data.copy()
+    arrowplotdata['Date'] = pd.to_datetime(arrowplotdata['Date'])
+    # Drop unnecessary columns
+    arrowplotdata.drop(columns=['Time hh:mm', 'Special commentary', 'Gym hh:mm', 'Yoga hh:mm','Cardio hh:mm', 'Static Work hh:mm'], inplace=True)
+
+    # Melt the DataFrame to have 'Distance' and 'Value'
+    melted_data = pd.melt(arrowplotdata, id_vars=['Date'], var_name='Distance', value_name='Value')
+    melted_data = melted_data[melted_data['Distance'] != 'Total Arrows']
+
+    # Create the plot with all data
+    fig = px.bar(melted_data, x='Date', y='Value', color='Distance',
+                labels={'Value': 'Arrows Shot', 'Distance': 'Distance'},
+                category_orders={'Distance': sorted(data.columns[1:])})
+
+    # Layout adjustments for readability
     fig.update_layout(
-        width=1200,  # Set the width of the plot
-        height=700  # Set the height of the plot
+        width=1200,
+        height=700,
+        margin=dict(t=100),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="center", x=0.5, font=dict(size=20)),
+        dragmode='pan'  # Allow panning
     )
 
-    # Set the default x-axis range to the last 30 days
+    # Dynamically determine the range to focus on the current month
+    first_day_of_current_month = datetime.now().replace(day=1)
+    last_day_of_current_month = datetime.now()
+
+    # Adjust x-axis to focus on the current month by default
     fig.update_xaxes(
-        range=[last_30_days, pd.to_datetime('today')],
-        rangeslider_visible=True  # Enable rangeslider for pan/zoom
+        rangeslider_visible=True,
+        range=[first_day_of_current_month, last_day_of_current_month]
     )
-    
-    fig.update_layout(margin=dict(t=100))
 
-    
-    
-    # Show the legend
-    fig.update_layout(legend=dict(orientation="h", yanchor="bottom", xanchor="center", y=1.02, x=0.5, font=dict(size=20)), showlegend=True)
-    
-    # Add space to the right of the legend
-    #fig.update_layout(legend=dict(x=0.6, y=1.15))
-
-    
-    # Disable zooming and panning
-    fig.update_layout(dragmode='pan')
-    
-    fig.update_layout(yaxis=dict(fixedrange=True))
-
-    # Show ticks for every day on x-axis
-    fig.update_layout(xaxis=dict(dtick='D'))
-
-
-    # Display the chart in Streamlit
+    # Display the chart
     st.plotly_chart(fig, use_container_width=True)
