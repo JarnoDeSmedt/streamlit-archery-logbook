@@ -1,5 +1,6 @@
 import streamlit as st
-
+import os
+import sqlite3
 import pandas as pd
 import datetime
 from datetime import datetime
@@ -10,10 +11,17 @@ st.title('Dashboard van sqlite database')
 if not st.session_state['authentication_status']:
     st.stop()  # Do not continue if check_password is not True.
 
+# List files in the DATA directory
+data_dir = './DATA'
+files = [f for f in os.listdir(data_dir) if os.path.isfile(os.path.join(data_dir, f))]
 
-# Load the data from the sqlite database
-import sqlite3
-conn = sqlite3.connect('dbToAdd.db')
+# Streamlit dropdown to select a file
+selected_file = st.selectbox("Choose a database file", files)
+
+if selected_file:
+    databasename = os.path.join(data_dir, selected_file)
+
+conn = sqlite3.connect(databasename)
 c = conn.cursor()
 c.execute('SELECT * FROM match')
 data = c.fetchall()
@@ -22,8 +30,12 @@ conn.close()
 # Convert the data to a pandas DataFrame
 data = pd.DataFrame(data)
 
-# Display the data
-st.write(data)
+
+
+
+
+
+# --- Show KPIs
 
 # --- KPI - total cardio this week
 
@@ -45,3 +57,13 @@ st.write(data)
 
 # # Display the result using st.metric
 # st.metric(label='Total Time Cardio per Week', value=total_time_str)
+
+
+
+
+# --- Show the data
+st.markdown('---')
+with st.expander("Show table"):
+    st.write(data)
+
+
