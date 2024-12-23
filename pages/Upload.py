@@ -2,6 +2,10 @@ import streamlit as st
 # display title
 st.title(f"Upload a sqlite file!")
 
+# --- user authentication
+if not st.session_state['authentication_status']:
+    st.stop()  # Do not continue if check_password is not True.
+
 st.text("upload your sqlite file")
 uploaded_sqlite_file = st.file_uploader("Choose a file")
 

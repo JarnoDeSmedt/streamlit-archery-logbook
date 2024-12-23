@@ -1,3 +1,10 @@
+import streamlit as st
+
+# --- user authentication
+if not st.session_state['authentication_status']:
+    st.stop()  # Do not continue if check_password is not True.
+
+
 # --- button to speak
 #AI_button = st.button(label="Quick way [microfoon]")
 # ---

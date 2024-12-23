@@ -11,7 +11,6 @@ import pandas as pd
 st.set_page_config(layout="wide")
 
 # --- user authentication
-
 import yaml
 from yaml.loader import SafeLoader
 with open('./config.yaml') as file:
@@ -27,16 +26,19 @@ authenticator = stauth.Authenticate(
 try:
     authenticator.login()
 except Exception as e:
-    st.error(e)
+    if isinstance(e, stauth.streamlit.errors.StreamlitWebSocketError):
+        st.warning("Connection lost. Please reload the page.")
+    else:
+        st.error(f"An unexpected error occurred: {e}")
 
 if st.session_state['authentication_status']:
     authenticator.logout()
-    st.write(f'Welcome *{st.session_state["name"]}*')
-    st.title('Some content')
+    # display title
+    name = st.session_state["name"]
+    st.title(f"Welcome to your archery logbook, *{name}*!")
+
 elif st.session_state['authentication_status'] is False:
     st.error('😕 Username/password is incorrect')
 elif st.session_state['authentication_status'] is None:
     st.warning('Please enter your username and password')
 
-# display title
-st.title(f"Welcome to your archery logbook!")
