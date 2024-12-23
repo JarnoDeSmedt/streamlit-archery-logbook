@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import sqlite3
 import pandas as pd
+import altair as alt
 import datetime
 from datetime import datetime
 
@@ -22,14 +23,26 @@ if selected_file:
     databasename = os.path.join(data_dir, selected_file)
 
 conn = sqlite3.connect(databasename)
-c = conn.cursor()
-c.execute('SELECT * FROM match')
-data = c.fetchall()
-conn.close()
 
-# Convert the data to a pandas DataFrame
-data = pd.DataFrame(data)
+# Overview Section
+st.header("Overview")
+overview_query = """
+    SELECT 
+        COUNT(DISTINCT m._id) AS total_matches,
+        COUNT(DISTINCT k._id) AS total_sessions,
+        COUNT(s._id) AS total_shots
+    FROM match m
+    LEFT JOIN kuiperslist k ON k.date = m.date
+    LEFT JOIN shot s ON s.match_id = m._id
+"""
+overview = pd.read_sql_query(overview_query, conn)
+st.metric("Total Matches", overview["total_matches"].iloc[0])
+st.metric("Total Sessions", overview["total_sessions"].iloc[0])
+st.metric("Total Shots", overview["total_shots"].iloc[0])
 
+
+
+# TODO: decide what do you want to see? 
 
 
 
@@ -63,6 +76,14 @@ data = pd.DataFrame(data)
 
 # --- Show the data
 st.markdown('---')
+c = conn.cursor()
+c.execute('SELECT * FROM match')
+data = c.fetchall()
+conn.close()
+
+# Convert the data to a pandas DataFrame
+data = pd.DataFrame(data)
+
 with st.expander("Show table"):
     st.write(data)
 
