@@ -3,8 +3,7 @@ import os
 import sqlite3
 import pandas as pd
 import altair as alt
-import datetime
-from datetime import datetime
+from pipelines.match_pipeline import process_dataframe
 
 st.title('Dashboard van sqlite database')
 
@@ -22,8 +21,20 @@ selected_file = st.selectbox("Choose a database file", files)
 if selected_file:
     databasename = os.path.join(data_dir, selected_file)
 
+### --- CLEANING
+# 1. match table
 conn = sqlite3.connect(databasename)
+df_match = pd.read_sql_query("SELECT * FROM match", conn)
+conn.close()
+processed_df_match = process_dataframe(df_match)
 
+
+
+
+
+
+
+### --- VISUALISATION
 # Overview Section
 st.header("Overview")
 overview_query = """
