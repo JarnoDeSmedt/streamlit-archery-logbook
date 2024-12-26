@@ -3,7 +3,7 @@ import os
 import sqlite3
 import pandas as pd
 import altair as alt
-from pipelines.match_pipeline import process_dataframe
+from pipelines.match_pipeline import process_match_table
 
 st.title('Dashboard van sqlite database')
 
@@ -13,7 +13,7 @@ if not st.session_state['authentication_status']:
 
 # List files in the DATA directory
 data_dir = './DATA'
-files = [f for f in os.listdir(data_dir) if os.path.isfile(os.path.join(data_dir, f))]
+files = [f for f in os.listdir(data_dir) if f.endswith('.db') and os.path.isfile(os.path.join(data_dir, f))]
 
 # Streamlit dropdown to select a file
 selected_file = st.selectbox("Choose a database file", files)
@@ -21,12 +21,13 @@ selected_file = st.selectbox("Choose a database file", files)
 if selected_file:
     databasename = os.path.join(data_dir, selected_file)
 
-### --- CLEANING
-# 1. match table
-conn = sqlite3.connect(databasename)
-df_match = pd.read_sql_query("SELECT * FROM match", conn)
-conn.close()
-processed_df_match = process_dataframe(df_match)
+    ### --- CLEANING
+    # 1. match table
+    conn = sqlite3.connect(databasename)
+    df_match = pd.read_sql_query("SELECT * FROM match", conn)
+    conn.close()
+    processed_df_match = process_match_table(df_match)
+    
 
 
 
@@ -46,6 +47,7 @@ overview_query = """
     LEFT JOIN kuiperslist k ON k.date = m.date
     LEFT JOIN shot s ON s.match_id = m._id
 """
+conn = sqlite3.connect(databasename)
 overview = pd.read_sql_query(overview_query, conn)
 st.metric("Total Matches", overview["total_matches"].iloc[0])
 st.metric("Total Sessions", overview["total_sessions"].iloc[0])

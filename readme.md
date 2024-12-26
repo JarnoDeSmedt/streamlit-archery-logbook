@@ -44,3 +44,4 @@ jarno = "jarno"
 test = "test"
 ````
 
+streamlit run Home.py
