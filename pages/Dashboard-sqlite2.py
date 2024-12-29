@@ -9,6 +9,13 @@ from pipelines.match_pipeline import process_match_table
 
 from azure.storage.blob import BlobServiceClient, BlobClient
 
+import yaml
+from yaml.loader import SafeLoader
+with open('./config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+CONECTIONSTRINGAZURE = config['azure_connection_string']
+
 st.title('Dashboard van sqlite database')
 
 # --- user authentication
@@ -19,7 +26,7 @@ if not st.session_state['authentication_status']:
 logging.basicConfig(level=logging.INFO, filename="azureDBlogs.txt", filemode="a", format="%(asctime)s %(message)s")
 
 # Download jarno.db from the storage account
-connection_string = "DefaultEndpointsProtocol=https;AccountName=datalakearchery;AccountKey=xAa+gCRWs4JyBP/EDJcooEaw07A5GfKXTszAwgsAltUI7Ohcp+3jtwANYPBm2cy8+STAI+EDDYiv+AStAy2OqA==;EndpointSuffix=core.windows.net"
+connection_string = CONECTIONSTRINGAZURE
 blob = BlobClient.from_connection_string(conn_str=connection_string, container_name="artemisdata", blob_name="backups-jarno/jarno.db")
 jarno_db_path = "./DATA/jarno.db"
 with open(jarno_db_path, "wb") as my_blob:
