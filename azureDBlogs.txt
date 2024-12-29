@@ -163,3 +163,39 @@ Response headers:
     'Date': 'Sun, 29 Dec 2024 18:11:47 GMT'
 2024-12-29 19:11:46,830 jarno.db database downloaded!
 
+2024-12-29 19:18:11,962 Request URL: 'https://datalakearchery.blob.core.windows.net/artemisdata/backups-jarno/jarno.db'
+Request method: 'GET'
+Request headers:
+    'x-ms-range': 'REDACTED'
+    'x-ms-version': 'REDACTED'
+    'Accept': 'application/xml'
+    'User-Agent': 'azsdk-python-storage-blob/12.24.0 Python/3.10.7 (Windows-10-10.0.26100-SP0)'
+    'x-ms-date': 'REDACTED'
+    'x-ms-client-request-id': '436b377d-c611-11ef-a99b-10a51d92f3bb'
+    'Authorization': 'REDACTED'
+No body was attached to the request
+2024-12-29 19:18:12,149 Response status: 206
+Response headers:
+    'Content-Length': '3067904'
+    'Content-Type': 'application/octet-stream'
+    'Content-Range': 'REDACTED'
+    'Last-Modified': 'Sun, 29 Dec 2024 18:17:40 GMT'
+    'Accept-Ranges': 'REDACTED'
+    'ETag': '"0x8DD283514FEC924"'
+    'Server': 'Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0'
+    'x-ms-request-id': '94c53142-601e-0070-4d1e-5aa7b5000000'
+    'x-ms-client-request-id': '436b377d-c611-11ef-a99b-10a51d92f3bb'
+    'x-ms-version': 'REDACTED'
+    'x-ms-resource-type': 'REDACTED'
+    'x-ms-creation-time': 'REDACTED'
+    'x-ms-lease-status': 'REDACTED'
+    'x-ms-lease-state': 'REDACTED'
+    'x-ms-blob-type': 'REDACTED'
+    'x-ms-server-encrypted': 'REDACTED'
+    'x-ms-owner': 'REDACTED'
+    'x-ms-group': 'REDACTED'
+    'x-ms-permissions': 'REDACTED'
+    'x-ms-acl': 'REDACTED'
+    'Date': 'Sun, 29 Dec 2024 18:18:11 GMT'
+2024-12-29 19:18:14,145 jarno.db database downloaded!
+

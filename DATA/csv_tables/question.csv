@@ -1,0 +1,4 @@
+_id,_time_c,_time_u,active,question,help,option1,option2,option3,option4,option5,color1,color2,color3,color4,color5,fromdate,todate,frequency,_aid
+1,1664459687,1664459735,1,Stijheid,,veel,,matig,,geen,#fff44336,#ffff9800,#ffffeb3b,#ffcddc39,#ff4caf50,1664409600,1695945600,0,r1iJvHbkTs7K
+2,1664459728,1664459777,1,slaap,Hoe goed voel je je uitgerust,slecht,,matig,,goed,#fff44336,#ffff9800,#ffffeb3b,#ffcddc39,#ff4caf50,1664409600,1695945600,0,r1iJvHbkTs7K
+3,1664459769,1664459769,1,algemeen gevoel,Hoe voel je je?,slecht,,matig,,goed,#fff44336,#ffff9800,#ffffeb3b,#ffcddc39,#ff4caf50,1664409600,1695945600,0,r1iJvHbkTs7K

@@ -1,0 +1,4 @@
+_id,_time_c,_time_u,name,elevation_rate,elevation_clicks,windage_rate,windage_clicks,notes,archived,_aid
+1,1649243479,1650566750,Shibuya goud,1.06,20,0.79,20,Specs are from Shibuya Ultima RC,0,r1iJvHbkTs7K
+2,1650566735,1650566742,Shibuya zwart,1.06,20,0.79,20,,0,r1iJvHbkTs7K
+3,1652710748,1652710758,Shibuya zwart (oude versie),1.06,20,0.79,20,,0,r1iJvHbkTs7K

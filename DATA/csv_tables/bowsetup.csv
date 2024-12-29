@@ -1,0 +1,72 @@
+_id,_time_c,_time_u,name,fdweight,fdweight_units,braceheight,braceheight_units,nockingpoint,nockingpoint_units,tiller,tiller_units,sightextension,sightextension_units,drawlength,drawlength_units,string,sight_id,bow_id,button_center,button_center_units,button_spring,button_setting,stab_setup,letoffweight,letoffweight_units,rest_pos_hor,rest_pos_vert,rest_blade_stiffness,rest_blade_type,scope_mag,peep_nock,peep_nock_units,timing,extrainfo,sightextensionhole,eyestringdistance,eyestringdistance_units,archived,_aid
+1,1649243479,1684748486,witte ATF X (outdoor),,,23.2,3.0,12.0,3.0,2.5,3.0,830.0,3.0,,,ASB pro (20dr),1,1,,,2,5.31,,,,,,,,,,,,,2.0,,,1,r1iJvHbkTs7K
+2,1650566728,1679760714,khaki META-DX (outdoor),,,,,,,,,,,,,,1,2,,,0,,,,,,,,,,,,,,,,,0,r1iJvHbkTs7K
+3,1652710719,1679760714,Zwarte META-DX (90m),,,,,,,,,,,,,,3,3,,,0,,,,,,,,,,,,,,4.0,,,0,r1iJvHbkTs7K
+4,1652711288,1652711301,Zwarte META-DX (outdoor,,,,,,,,,,,,,,3,3,,,0,,,,,,,,,,,,,,2.0,,,0,r1iJvHbkTs7K
+5,1652711315,1663326138,witte ATF X (90m),,,23.5,3.0,12.0,3.0,2.5,3.0,830.0,3.0,,,ASB pro (20dr),1,1,,,2,5.31,,,,,,,,,,,,,7.0,,,0,r1iJvHbkTs7K
+6,1655817633,1684748475,witte ATF X (outdoor) na worldcup parijs,48.0,1.0,23.2,3.0,11.0,3.0,2.5,3.0,830.0,3.0,,,ASB pro (20dr),1,1,0.75,3.0,2,5.31,,,,,,,,,,,,"andere latten, samen met w&w afgesteld ns g wood 70 40, staat nu ook iets meer uitgedraaid dan 70 40 ns wood
+
+tiller boven 19 vkp
+tiller onder 18.8 vkp",0.0,,,1,r1iJvHbkTs7K
+7,1668764478,1684748470,Blauwe ATF-X na kings (afgesteld in Belek),48.3,1.0,23.2,3.0,12.0,3.0,3.0,3.0,,,,,gele majesty 777,2,4,8.23,3.0,2,5.15,"smackdown met 1 gewicht minder dan waar ik normaal mee schoot op witte ATF-X 
+
+getest met 22.8 en vliegt en groept ook tamelijk goed. 
+b 18.6
+o 18.3
+nokpunt 10-11mm",,,,,,,,,,,"latten: gele sticker
+NS-G (W) LZKPW700022 70-40",2.0,,,1,r1iJvHbkTs7K
+8,1668852608,1672739196,Witte ATF-X (na Belek),48.0,1.0,23.2,3.0,11.0,3.0,1.0,3.0,,,,,Majesty 777,1,1,,,0,,,,,,,,,,,,,"nieuwe pondenvijzen en alignment blocks
+
+vervangen om klikgeluid te fixen
+
+is veel vuil uit gekomen
+
+afgesteld in Belek
+
+latten: NS-G (W) LZDPW700014 70-40
+
+tiller boven 18.9 vkp
+
+tiller onder 18.8vkp
+
+",2.0,,,0,r1iJvHbkTs7K
+9,1676971969,1690181971,Blauwe ATF-X andere tiller,48.3,1.0,23.2,3.0,12.0,3.0,0.0,3.0,,,,,asb Pro wit,2,4,8.23,3.0,2,5.15,"smackdown met 1 gewicht minder dan waar ik normaal mee schoot op witte ATF-X 
+ 
+b 19
+o 19
+nokpunt 10-11mm
+
+dit kan wel veranderd zijn sinds ik op 23.5 achterkant pees met W&W grip schiet",,,,,,,,,,,"latten: gele sticker
+NS-G (W) LZKPW700022 70-40
+
++ griptape
+
+kale (350 set met gele wraps) zit op 30m erbij",0.0,,,0,r1iJvHbkTs7K
+10,1678179801,1684748470,Blauwe ATF-X copy zwart drukpunt (lichtere druk),48.3,1.0,23.2,3.0,12.0,3.0,0.0,3.0,,,,,asb pro wit,2,4,8.23,3.0,2,5.15,"smackdown met 1 gewicht minder dan waar ik normaal mee schoot op witte ATF-X 
+ 
+b 19
+o 19
+nokpunt 10-11mm",,,,,,,,,,,"latten: gele sticker
+NS-G (W) LZKPW700022 70-40
+
++ griptape
+
+kale (350 set met gele wraps) zit hoog rechts in 7
+
+
+drukpunt -1.5toer",0.0,,,1,r1iJvHbkTs7K
+11,1679069499,1679760714,groene atf-dx,,,,,,,,,,,,,,1,5,,,0,,,,,,,,,,,,,,,,,0,r1iJvHbkTs7K
+12,1679503797,1679525509,groene atf-dx (zoals blauwe gezet),48.5,1.0,23.5,3.0,12.0,3.0,0.0,3.0,,,,,zwarte ff+,1,5,,,0,,wiawis goud zwart,,,,,,,,,,,"peeshoogte gemeten tot midden drukpunt
+
+aangepast zoals blauwe ATF-X ZIE BLAD CLUB VOOR GEGEVENS",0.0,,,0,r1iJvHbkTs7K
+13,1711634238,1711634238,paarse ATF-DX na turkije,,1.0,23.3,3.0,13.0,3.0,1.0,3.0,,3.0,,3.0,777,1,6,,3.0,0,,,,1.0,,,,,,,3.0,,,,,3.0,0,r1iJvHbkTs7K
+14,1715600609,1728401504,copy Blauwe ATF-X (andere tiller) na ek Essen,43.7,1.0,23.0,3.0,13.5,3.0,0.0,3.0,,3.0,,3.0,asb 777 zwart 18dr of ff+ 18dr blauw,2,4,,3.0,2,10.0,"b 18.5
+o 18.5
+nokpunt 14-15mm",,1.0,,,,,,,3.0,,"latten: gele sticker
+NS-G (W) LZKPW700022 70-40
+
+kale (410 set met witte veren, 410-b-c1 en laatste nieuwe) zit op 30m erbij en goeie groepjes + vlucht 70m
+
+",0.0,,3.0,0,r1iJvHbkTs7K
+15,1715611656,1715611656,new abzg atf-dx (powerboog),,1.0,,3.0,,3.0,,3.0,,3.0,,3.0,,2,7,,3.0,0,,,,1.0,,,,,,,3.0,,,,,3.0,0,r1iJvHbkTs7K
+16,1734354369,1734355547,witte ATF X (powerboog),,1.0,23.5,3.0,14.0,3.0,0.0,3.0,830.0,3.0,,3.0,ASB 777 (18dr),1,1,,3.0,2,,,,1.0,,,,,,,3.0,,zwaardere kracht boog met 350 x10 want 450 preminens was veel te slap en groepeert totaal niet,0.0,,3.0,0,r1iJvHbkTs7K

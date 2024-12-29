@@ -1,0 +1,18 @@
+_id,_time_c,_time_u,tablename,title,summary,allfilter_id,filter0_id,filter1_id,filter2_id,filter3_id,filter4_id,filter5_id,_aid
+1,1651057899,1651057899,shotview,Afstand 18m,Het 'ALL' filter selecteert alle pijlen geschoten op 18m.,1,2,3,4,5,6,7,r1iJvHbkTs7K
+2,1651057899,1651057899,shotview,Afstand 50m,Het 'ALL' filter selecteert alle pijlen geschoten op 50m.,8,9,10,11,12,13,14,r1iJvHbkTs7K
+3,1651057899,1651057899,shotview,Afstand 70m,Het 'ALL' filter selecteert alle pijlen geschoten op 70m.,15,16,17,18,19,20,21,r1iJvHbkTs7K
+4,1651057899,1651057899,matchview,Afstand 18m,Het 'ALL' filter selecteert alle wedstrijden geschoten op 18m.,22,23,24,25,26,27,28,r1iJvHbkTs7K
+5,1651057899,1651057899,matchview,Afstand 50m,Het 'ALL' filter selecteert alle wedstrijden geschoten op 50m.,29,30,31,32,33,34,35,r1iJvHbkTs7K
+6,1651057899,1651057899,matchview,Afstand 70m,Het 'ALL' filter selecteert alle wedstrijden geschoten op 70m.,36,37,38,39,40,41,42,r1iJvHbkTs7K
+7,1651057899,1651057899,shotview,Goed weer,Het 'ALL' filter selecteert alle geplotte pijlen geschoten in goed weer en minder dan 4Bft wind.,43,44,45,46,47,48,49,r1iJvHbkTs7K
+8,1651057899,1651057899,matchview,Goed weer,Het 'ALL' filter selecteert alle wedstrijdresultaten behaald in goed weer en minder dan 4Bft wind.,50,51,52,53,54,55,56,r1iJvHbkTs7K
+9,1651057899,1651057899,shotview,Training vs Competitie,Filters 1 selecteert alle in training geplotte pijlen en filter 2 selecteert alle in competitie geplotte pijlen.,57,58,59,60,61,62,63,r1iJvHbkTs7K
+10,1651057899,1651057899,matchview,Training vs Competitie,Filters 1 selecteert alle training wedstrijdresultaten en filter 2 selecteert alle competitie wedstrijdresultaten.,64,65,66,67,68,69,70,r1iJvHbkTs7K
+11,1651057899,1651057899,shotview,Series,"Filters 1…6 selecteren alle geplotte pijlen per serie. Filter 1 selecteert alle geschoten pijlen in eerste series, filter 2 selecteert alle geschoten pijlen in elke tweede serie,  enz.",71,72,73,74,75,76,77,r1iJvHbkTs7K
+12,1651057899,1651057899,shotview,Schietvolgorde,"Filters 1…6 selecteren alle geplotte pijlen in schietvolgorde. Filter 1 selecteert alle 1st geschoten pijlen per serie, filter 2 selecteert alle als 2de geschoten pijlen in elke serie,  enz.",78,79,80,81,82,83,84,r1iJvHbkTs7K
+13,1651057899,1651057899,shotview,Schot beoordeling,"Filters 1…6 selecteren alle geplotte pijlen per schot beoordeling. Filter 1 selecteert alle geschoten pijlen met een 1 ster beoordeling, filter 2 selecteert alle geschoten pijlen met een 2 ster beoordeling,  enz.",85,86,87,88,89,90,91,r1iJvHbkTs7K
+14,1651057899,1651057899,shotview,Diverse schietafstanden,"Filters 1…6 selecteren alle geplotte pijlen per schietafstand. Filter 1 selecteert alle geschoten pijlen op 0…20m, fiter 2 =  = 20m…31m, filter 3 = 31m…45m, filter 4 = 45m…61m, filter 5 = 61m…75m and filter 6 = 75m…91m",92,93,94,95,96,97,98,r1iJvHbkTs7K
+15,1651057899,1651057899,shotview,Nauwkeurigheids-ringen,"Filters 1…6 selecteren alle geplotte pijlen per scorende-ring. Filter 1 selecteert alle geschoten pijlen die in een cirkel met een equivalente afmeting van de 10 op 122cm op 70m. Filter 2 selecteert alle geschoten pijlen die in een cirkel met een equivalente afmeting van de negen op 122cm op 70m vallen, maar exclusief de 10 ring, etc.",99,100,101,102,103,104,105,r1iJvHbkTs7K
+17,1678368022,1678368022,shotview,drukpunt 2,groepen lichte druk vs normaal zwart drukpunt,119,113,114,115,116,117,118,r1iJvHbkTs7K
+18,1678368358,1678368358,shotview,peeshoogte,23.2 vs 23.5,126,120,121,122,123,124,125,r1iJvHbkTs7K
